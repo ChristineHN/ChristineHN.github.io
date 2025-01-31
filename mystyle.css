@@ -1,4 +1,4 @@
-div {
+main {
     background-color: lightsalmon;
     border: 15px solid lightblue;
     width: 300px;
@@ -7,9 +7,11 @@ div {
     text-align: center;
     color: navy;
 }
+
 p {
     text-align: left;
 }
+
 li {
     text-align: left;
 }
