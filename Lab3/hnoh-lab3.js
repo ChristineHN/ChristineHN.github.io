@@ -1,4 +1,4 @@
-// Hyesoo Noh
+// H Noh
 // ITMD 541-01 Graduate Student 
 
 //Exercise #1 
