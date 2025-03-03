@@ -79,7 +79,9 @@ function sortPeople(ppl) {
     }
 }
 console.log(`\nExercise #5 - sort people by age`);
-console.log(`Test array #1`)
+console.log(`Test array #1`);
 sortPeople([{ name: 'Michael', age: 23, city: 'Chicago' }, { name: 'Jim', age: 32, city: 'New York' }, { name: 'Joe', age: 52, city: 'St. Louis' }, { name: 'Terry', age: 12, city: 'Des Plaines' }, { name: 'Richard', age: 132, city: 'Miami' }]);
-console.log(`Test array #2`)
+console.log(`Test array #2`);
 sortPeople([{ name: 'James', age: 10, city: 'Los Angeles' }, { name: 'Mary', age: 9, city: 'Houston' }, { name: 'John', age: 8, city: 'Phoenix' }, { name: 'Emily', age: 7, city: 'Denver' }, { name: 'William', age: 6, city: 'Boston' }, { name: 'Olivia', age: 5, city: 'Orlando' }, { name: 'Daniel', age: 4, city: 'Austin' }]);
+console.log(`Test array #3`);
+sortPeople([{ name: 'David', age: 28, city: 'Charlotte' }, { name: 'Ava', age: 25, city: 'San Antonio' }, { name: 'Ethan', age: 32, city: 'Columbus' }, { name: 'Ben', age: 17, city: 'Indianapolis' }, { name: 'Alexander', age: 46, city: 'Detroit' }, { name: 'Isabella', age: 15, city: 'Minneapolis' }, { name: 'Jacob', age: 29, city: 'Jacksonville' }, { name: 'Madison', age: 8, city: 'Louisville' }, { name: 'Chloe', age: 39, city: 'Baltimore' }]);
