@@ -42,7 +42,7 @@ function countVowels(str) {
 }
 console.log(`\nExercise #2 - count vowels in the string`);
 countVowels("Winter");
-countVowels("");
+countVowels("Exercise");
 countVowels("Information Technology Management");
 countVowels("COFFEE");
 
@@ -79,5 +79,7 @@ function sortPeople(ppl) {
     }
 }
 console.log(`\nExercise #5 - sort people by age`);
+console.log(`Test array #1`)
 sortPeople([{ name: 'Michael', age: 23, city: 'Chicago' }, { name: 'Jim', age: 32, city: 'New York' }, { name: 'Joe', age: 52, city: 'St. Louis' }, { name: 'Terry', age: 12, city: 'Des Plaines' }, { name: 'Richard', age: 132, city: 'Miami' }]);
+console.log(`Test array #2`)
 sortPeople([{ name: 'James', age: 10, city: 'Los Angeles' }, { name: 'Mary', age: 9, city: 'Houston' }, { name: 'John', age: 8, city: 'Phoenix' }, { name: 'Emily', age: 7, city: 'Denver' }, { name: 'William', age: 6, city: 'Boston' }, { name: 'Olivia', age: 5, city: 'Orlando' }, { name: 'Daniel', age: 4, city: 'Austin' }]);
