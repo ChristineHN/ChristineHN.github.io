@@ -88,7 +88,7 @@
     const form = document.querySelector('form');
     if (form) {
         form.addEventListener('submit', function (event) {
-            event.preventDefault(); // prevent navigation to contact.html
+            event.preventDefault(); /
 
             const nameInput = form.querySelector('input[name="name"]');
             const emailInput = form.querySelector('input[name="email"]');
