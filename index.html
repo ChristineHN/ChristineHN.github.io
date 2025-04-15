@@ -1,28 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="mystyle.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tip Calculator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <main>
-        <h1>Hyesoo Noh</h1>
-        <section>
-            <h2>Introduction</h2>
-            <p>I am originally from South Korea but moved to Hollywood, Maryland back in 2011, and came to Chicago for
-                college in 2015. I love golfing, camping, and bouldering. Eventhough I don't have much experience in
-                HTML and CSS, I am looking forward to learn new skills in this class.</p>
-        </section>
-        <section>
-            <h2>Education</h2>
-            <ul>
-                <li>2015-2019: BS in Computer Science from Illinois Institute of Technology</li>
-                <li>2019-2021: Masters in Computer Science from Illinois Institute of Technology</li>
-                <li>2021-2022: Junior backend Web developer at Nansen (Chicago, IL)</li>
-            </ul>
-        </section>
-    </main>
+  <div class="wrapper">
+    <div class="card">
+      <h1>Tip Calculator</h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/12532/12532062.png" alt="Pizza Icon" class="tip-img">
+
+      <form>
+        <label for="billTotal">Bill Total <span id="currencySymbol">$</span>:</label>
+        <input type="text" id="billTotal" name="billTotal">
+        <p id="billError" class="error-message">Please enter a valid positive number.</p>
+
+        <label for="billWithTax">Total with Tax (11%):</label>
+        <input type="text" id="billWithTax" value="$0.00" disabled>
+
+        <label for="selectCurrenty">Currency:</label>
+        <select id="selectCurrenty">
+          <option value="usd">USD ($)</option>
+          <option value="euro">EUR (€)</option>
+          <option value="rupee">INR (₹)</option>
+        </select>
+
+        <label for="tip">Tip (%):</label>
+        <div class="slider-container">
+          <input type="range" min="0" max="100" value="0" id="tipSlider">
+          <span class="range-slider__value" id="tipValue">0</span>
+        </div>
+
+        <label for="tipAmount">Tip Amount:</label>
+        <input type="text" id="tipAmount" value="$0.00" disabled>
+
+        <label for="totalWithBillTipTax">Total with Tip + Tax:</label>
+        <input type="text" id="totalWithBillTipTax" value="$0.00" disabled>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
