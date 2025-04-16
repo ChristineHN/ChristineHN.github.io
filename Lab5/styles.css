@@ -63,7 +63,7 @@ select {
 }
 
 input[type="text"]:not([disabled]) {
-	background-color: #ffffff;
+	background-color: white;
 	border: 1px solid #ccc;
 	color: #333;
 	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.05);
@@ -100,26 +100,15 @@ input[disabled] {
 }
 
 .error-message {
-	color: #e53935;
+	color: red;
 	font-size: 0.9rem;
 	margin-top: -10px;
 	margin-bottom: 10px;
 	display: none;
 }
 
-@keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
 .tip-img {
-	width: 80px;
+	width: 70px;
 	display: block;
 	margin: 0 auto 20px;
-	animation: spin 6s linear infinite;
 }
