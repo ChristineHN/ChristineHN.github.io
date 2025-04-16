@@ -1,3 +1,5 @@
+<!-- H Noh
+ITMD 541-01 Graduate Student  -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,21 +15,24 @@
     <div class="card">
       <h1>Tip Calculator</h1>
       <img src="https://cdn-icons-png.flaticon.com/512/12532/12532062.png" alt="Pizza Icon" class="tip-img">
+      <p>$1 USD = €0.95 EUR for EUROS</p>
+      <p>$1 USD = ₹85 INR for Rupees</p>
 
       <form>
-        <label for="billTotal">Bill Total <span id="currencySymbol">$</span>:</label>
+        <label for="selectCurrenty">Select Currency:</label>
+        <select id="selectCurrenty">
+          <option value="usd">USD ($)</option>
+          <option value="euro">EUR (€)</option>
+          <option value="rupee">INR (₹)</option>
+        </select>
+
+        <label for="billTotal">Bill Total: $</label>
         <input type="text" id="billTotal" name="billTotal">
         <p id="billError" class="error-message">Please enter a valid positive number.</p>
 
         <label for="billWithTax">Total with Tax (11%):</label>
         <input type="text" id="billWithTax" value="$0.00" disabled>
 
-        <label for="selectCurrenty">Currency:</label>
-        <select id="selectCurrenty">
-          <option value="usd">USD ($)</option>
-          <option value="euro">EUR (€)</option>
-          <option value="rupee">INR (₹)</option>
-        </select>
 
         <label for="tip">Tip (%):</label>
         <div class="slider-container">
@@ -35,10 +40,10 @@
           <span class="range-slider__value" id="tipValue">0</span>
         </div>
 
-        <label for="tipAmount">Tip Amount:</label>
+        <label for="tipAmount">Converted Tip Amount:</label>
         <input type="text" id="tipAmount" value="$0.00" disabled>
 
-        <label for="totalWithBillTipTax">Total with Tip + Tax:</label>
+        <label for="totalWithBillTipTax">Converted Total with Tip + Tax:</label>
         <input type="text" id="totalWithBillTipTax" value="$0.00" disabled>
       </form>
     </div>

@@ -6,8 +6,6 @@ window.onload = () => {
     const tipAmount = document.getElementById('tipAmount');
     const totalWithTipTax = document.getElementById('totalWithBillTipTax');
     const currencySelect = document.getElementById('selectCurrenty');
-    const errorMsg = document.getElementById('billError');
-    const currencySymbolSpan = document.getElementById('currencySymbol');
 
     const exchangeRates = {
         usd: 1,
@@ -22,29 +20,26 @@ window.onload = () => {
     };
 
     function calculate() {
-        const billValue = billInput.value.trim();
-        let bill = parseFloat(billValue);
-        const selectedCurrency = currencySelect.value;
-        const rate = exchangeRates[selectedCurrency];
-        const symbol = currencySymbols[selectedCurrency];
-
-        if (isNaN(bill) || bill <= 0) {
-            billWithTax.value = symbol + '0.00';
-            tipAmount.value = symbol + '0.00';
-            totalWithTipTax.value = symbol + '0.00';
-            if (errorMsg) errorMsg.style.display = 'block';
+        const billValue = parseFloat(billInput.value.trim());
+        if (isNaN(billValue) || billValue <= 0) {
+            billWithTax.value = '';
+            tipAmount.value = '';
+            totalWithTipTax.value = '';
             return;
         }
 
-        if (errorMsg) errorMsg.style.display = 'none';
+        const tax = billValue * 0.11;
+        const totalWithTaxUSD = billValue + tax;
 
-        const tax = bill * 0.11;
-        const totalWithTax = bill + tax;
+        billWithTax.value = "$" + totalWithTaxUSD.toFixed(2);
+
+        const selectedCurrency = currencySelect.value;
+        const rate = exchangeRates[selectedCurrency];
+        const symbol = currencySymbols[selectedCurrency];
         const tipPercent = parseInt(tipSlider.value);
-        const tip = totalWithTax * (tipPercent / 100);
-        const total = totalWithTax + tip;
+        const tip = totalWithTaxUSD * (tipPercent / 100);
+        const total = totalWithTaxUSD + tip;
 
-        billWithTax.value = symbol + totalWithTax.toFixed(2);
         tipAmount.value = symbol + (tip * rate).toFixed(2);
         totalWithTipTax.value = symbol + (total * rate).toFixed(2);
     }
@@ -60,8 +55,6 @@ window.onload = () => {
     });
 
     currencySelect.addEventListener('change', () => {
-        const selectedCurrency = currencySelect.value;
-        currencySymbolSpan.textContent = currencySymbols[selectedCurrency];
         calculate();
     });
 };
