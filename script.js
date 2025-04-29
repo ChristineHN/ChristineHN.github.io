@@ -1,5 +1,7 @@
 // H Noh
 // ITMD 541-01 Graduate Student
+
+// Dictionary to store latitude and longitude for each cities in the dropdown list
 const cityCoords = {
     chicago: { lat: 41.8781, lng: -87.6298 },
     newyork: { lat: 40.7128, lng: -74.0060 },
@@ -15,21 +17,22 @@ const cityCoords = {
 
 let selectedCity = "";
 
+// Toggle the dropdown list for cities
 function getList() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
+// Add click event listeners to each city link
 document.querySelectorAll('.dropdown-content a').forEach(link => {
     link.addEventListener('click', function () {
         const cityName = this.textContent;
         const cityId = this.getAttribute('href').substring(1);
-        const coords = cityCoords[cityId];
+        const coords = cityCoords[cityId]; // Look up coordinates
 
         if (coords) {
             selectedCity = cityName;
             document.getElementById('lat').innerText = coords.lat;
             document.getElementById('long').innerText = coords.lng;
-            fetchSunData(coords.lat, coords.lng);
+            fetchSunData(coords.lat, coords.lng);  // Fetch data for selected city
 
             document.querySelector('.dropbtn').textContent = `🌍 ${cityName}`;
         }
@@ -37,6 +40,7 @@ document.querySelectorAll('.dropdown-content a').forEach(link => {
     });
 });
 
+// Function to get the user's current location
 function getCurLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -46,17 +50,8 @@ function getCurLocation() {
             document.getElementById('long').innerText = lng;
             fetchSunData(lat, lng);
 
-            document.querySelector('.dropbtn').textContent = "🌍 Select a City";
-
-            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`)
-                .then(response => response.json())
-                .then(data => {
-                    selectedCity = data.address.city || data.address.town || data.address.village || "Current Location";
-                })
-                .catch(() => {
-                    selectedCity = "Current Location";
-                });
-
+            document.querySelector('.dropbtn').textContent = "🌍 Select a City"; // Reset button text
+            //throw popup for failed calls
         }, () => {
             alert('Cannot get the current location.');
         });
@@ -65,6 +60,7 @@ function getCurLocation() {
     }
 }
 
+// Fetch data from the API
 function fetchSunData(lat, lng) {
     fetch(`https://api.sunrisesunset.io/json?lat=${lat}&lng=${lng}`)
         .then(response => response.json())
@@ -74,7 +70,7 @@ function fetchSunData(lat, lng) {
 
                 const tomorrow = new Date();
                 tomorrow.setDate(tomorrow.getDate() + 1);
-                const dateStr = tomorrow.toISOString().split('T')[0];
+                const dateStr = tomorrow.toISOString().split('T')[0]; //drop timezone from the datetime
 
                 fetch(`https://api.sunrisesunset.io/json?lat=${lat}&lng=${lng}&date=${dateStr}`)
                     .then(response => response.json())
@@ -87,9 +83,10 @@ function fetchSunData(lat, lng) {
         });
 }
 
+// Function to update the information in a each cards
 function updateCard(day, results) {
     const cards = Array.from(document.querySelectorAll('.card'));
-    const card = cards.find(c => c.querySelector('h2')?.innerText.includes(day));
+    const card = cards.find(c => c.querySelector('h2')?.innerText.includes(day)); // Find correct card by title
     if (!card) return;
 
     const spans = card.querySelectorAll('span');
@@ -104,6 +101,7 @@ function updateCard(day, results) {
     }
 }
 
+// To show today and tomorrow's date in each cards
 function updateDates() {
     const today = new Date();
     const tomorrow = new Date();
@@ -116,4 +114,5 @@ function updateDates() {
     document.getElementById('tomorrowTitle').innerText = `Tomorrow (${tomorrowStr})`;
 }
 
+// Initialize the dates when page loads
 updateDates();
