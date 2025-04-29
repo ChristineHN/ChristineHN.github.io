@@ -9,6 +9,7 @@ body {
 	justify-content: center;
 }
 
+/* Wrapper to center all content and limit max width */
 .wrapper {
 	text-align: center;
 	width: 100%;
@@ -70,6 +71,7 @@ h1 {
 	background-color: #f1f1f1;
 }
 
+/* Class to show the dropdown when activated */
 .show {
 	display: block;
 }
@@ -79,6 +81,7 @@ h1 {
 	margin: 20px 0;
 }
 
+/* Container for the two cards (Today and Tomorrow) */
 .card-container {
 	display: flex;
 	justify-content: space-between;
@@ -88,6 +91,7 @@ h1 {
 	width: 100%;
 }
 
+/* Individual card styles */
 .card {
 	background: #fefefe;
 	padding: 24px;
@@ -98,6 +102,7 @@ h1 {
 	text-align: center;
 }
 
+/* Responsive layout: for vertical view for mobile */
 @media (max-width: 768px) {
 	.card-container {
 		flex-direction: column;
@@ -105,6 +110,7 @@ h1 {
 	}
 }
 
+/* Add a down arrow icon after the dropdown button text to make it more user friendly */
 .dropbtn::after {
 	content: ' ▼';
 	font-size: 16px;

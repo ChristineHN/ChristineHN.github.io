@@ -5,9 +5,12 @@ ITMD 541-01 Graduate Student  -->
 
 <head>
   <meta charset="UTF-8">
+  <!-- For responsive design -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sunrise & Sunset Info</title>
+  <!-- Imported font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Link to css file -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -16,6 +19,7 @@ ITMD 541-01 Graduate Student  -->
     <h1>Sunrise & Sunset Info</h1>
 
     <div class="button-group">
+      <!-- Dropdown menu for selecting a city -->
       <div class="dropdown">
         <button onclick="getList()" class="dropbtn">🌍 Select a City</button>
         <div id="myDropdown" class="dropdown-content">
@@ -31,12 +35,14 @@ ITMD 541-01 Graduate Student  -->
           <a href="#austin">Austin</a>
         </div>
       </div>
-
+      <!-- Button for getting the current location -->
       <button onclick="getCurLocation()" class="curLocation">📍 Use Current Location</button>
     </div>
 
+    <!-- Displaying selected city's coordinates -->
     <p id="selectedCityInfo">Selected City at Latitude: <span id="lat"></span>, Longitude:<span id="long"></span></p>
 
+    <!-- Card for displaying today and tomorrow's info -->
     <div class="card-container">
       <div class="card today-card">
         <h2 id="todayTitle">Today</h2>
@@ -61,9 +67,11 @@ ITMD 541-01 Graduate Student  -->
       </div>
     </div>
 
+    <!-- API credit for SunriseSunset.io -->
     <p>API Credit to <a href="https://sunrisesunset.io/api/" target="_blank">SunriseSunset.io</a></p>
   </div>
 
+  <!-- Link to the js file -->
   <script src="script.js"></script>
 </body>
 
