@@ -51,16 +51,6 @@ function getCurLocation() {
             fetchSunData(lat, lng);
 
             document.querySelector('.dropbtn').textContent = "🌍 Select a City"; // Reset button text
-
-            //fetch city name from coordinates
-            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`)
-                .then(response => response.json())
-                .then(data => {
-                    selectedCity = data.address.city || data.address.town || data.address.village || "Current Location";
-                })
-                .catch(() => {
-                    selectedCity = "Current Location"; // Fallback if API call fails
-                });
             //throw popup for failed calls
         }, () => {
             alert('Cannot get the current location.');
